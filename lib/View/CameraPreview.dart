@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whats_app/View/imageScreen.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whats_app/View/videoView.dart';
 
 List<CameraDescription> cameras = [];

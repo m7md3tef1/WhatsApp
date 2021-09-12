@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal,
-          title: Text(Applocalization.of(context).translate('Fourth_string')),
+          title: Text(AppLocalization.of(context).translate('Fourth_string')),
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -28,11 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             PopupMenuButton(itemBuilder: (context) {
               return [
-                PopupMenuItem(child: Text(Applocalization.of(context).translate('Eighth_string')),),
-                PopupMenuItem(child: Text(Applocalization.of(context).translate('Ninth_string')),),
-                PopupMenuItem(child: Text(Applocalization.of(context).translate('tenth_string')),),
-                PopupMenuItem(child: Text(Applocalization.of(context).translate('Eleventh_string')),),
-                PopupMenuItem(child: Text(Applocalization.of(context).translate('twelve_string')),),
+                PopupMenuItem(child: Text(AppLocalization.of(context).translate('Eighth_string')),),
+                PopupMenuItem(child: Text(AppLocalization.of(context).translate('Ninth_string')),),
+                PopupMenuItem(child: Text(AppLocalization.of(context).translate('tenth_string')),),
+                PopupMenuItem(child: Text(AppLocalization.of(context).translate('Eleventh_string')),),
+                PopupMenuItem(child: Text(AppLocalization.of(context).translate('twelve_string')),),
               ];
 
             })
@@ -42,9 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
             indicatorColor: Colors.grey,
             tabs: [
               Icon(Icons.camera_alt),
-              Text(Applocalization.of(context).translate('first_string')),
-              Text(Applocalization.of(context).translate('second_string')),
-              Text(Applocalization.of(context).translate('third_string')),
+              Text(AppLocalization.of(context).translate('first_string')),
+              Text(AppLocalization.of(context).translate('second_string')),
+              Text(AppLocalization.of(context).translate('third_string')),
             ],
 
           ),

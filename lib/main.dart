@@ -26,16 +26,16 @@ supportedLocales: [
   Locale('ar','EG')
 ],
         localizationsDelegates: [
-          Applocalization.delegate,
+          AppLocalization.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
         localeResolutionCallback: (locale,supportedLocales){
-          for(var supportedlocale in supportedLocales ){
-            if(supportedlocale.languageCode==locale.languageCode &&
-            supportedlocale.countryCode==locale.countryCode
+          for(var supportedLocale in supportedLocales ){
+            if(supportedLocale.languageCode==locale.languageCode &&
+            supportedLocale.countryCode==locale.countryCode
             ){
-              return supportedlocale;
+              return supportedLocale;
             }
           }
           return supportedLocales.first;

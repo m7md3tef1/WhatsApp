@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Applocalization {
+class AppLocalization {
   final Locale locale;
-  Applocalization(this.locale);
-  static Applocalization of(BuildContext context) {
-    return Localizations.of<Applocalization>(context, Applocalization);
+  AppLocalization(this.locale);
+  static AppLocalization of(BuildContext context) {
+    return Localizations.of<AppLocalization>(context, AppLocalization);
   }
 
-  static LocalizationsDelegate<Applocalization> delegate =
+  static LocalizationsDelegate<AppLocalization> delegate =
       _AppLocalizationsDelegate();
 
   Map<String, String> _localizationStrings;
@@ -28,7 +28,7 @@ class Applocalization {
   }
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<Applocalization> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalization> {
   @override
   bool isSupported(Locale locale) {
     // TODO: implement isSupported
@@ -36,15 +36,15 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<Applocalization> {
   }
 
   @override
-  Future<Applocalization> load(Locale locale) async {
+  Future<AppLocalization> load(Locale locale) async {
     // TODO: implement load
-    Applocalization localization = new Applocalization(locale);
+    AppLocalization localization = new AppLocalization(locale);
     await localization.load();
     return localization;
   }
 
   @override
-  bool shouldReload(covariant LocalizationsDelegate<Applocalization> old) {
+  bool shouldReload(covariant LocalizationsDelegate<AppLocalization> old) {
     // TODO: implement shouldReload
     return false;
   }

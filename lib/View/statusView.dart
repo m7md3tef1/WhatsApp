@@ -1,7 +1,4 @@
-
-
 import 'package:badges/badges.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:story_view/controller/story_controller.dart';
 import 'package:story_view/widgets/story_view.dart';
@@ -176,11 +173,11 @@ class _StatusViewState extends State<StatusView> {
                 ),
               ),
               title: Text(
-                Applocalization.of(context).translate('Fifth_string'),
+                AppLocalization.of(context).translate('Fifth_string'),
                 style: TextStyle(color: Colors.black87),
               ),
               subtitle: Text(
-                Applocalization.of(context).translate('Sixth_string'),
+                AppLocalization.of(context).translate('Sixth_string'),
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -194,7 +191,7 @@ class _StatusViewState extends State<StatusView> {
                 child: Row(
                   children: [
                     Text(
-                      Applocalization.of(context).translate('Seventh_string'),
+                      AppLocalization.of(context).translate('Seventh_string'),
                       style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
