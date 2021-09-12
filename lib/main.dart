@@ -1,81 +1,50 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:whats_app/Chats.dart';
-void main(){
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:whats_app/Screen/HomeScreen.dart';
+import 'package:whats_app/Screen/SplashScreen.dart';
+import 'package:whats_app/View/CameraPreview.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'App_localization.dart';
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras=await availableCameras();
+
   runApp(WhatsApp());
 }
-class WhatsApp extends StatefulWidget {
-  const WhatsApp({Key key}) : super(key: key);
+class WhatsApp extends StatelessWidget {
 
-  @override
-  _WhatsAppState createState() => _WhatsAppState();
-}
-
-class _WhatsAppState extends State<WhatsApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 4,
-        initialIndex: 1,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.teal,
-            title: Text('Whats App'),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.search),
-              ),
-              PopupMenuButton(itemBuilder: (context)
-                {
-                  return
-                    [
-                    PopupMenuItem(child: Text('New Group'),),
-                      PopupMenuItem(child: Text('New broadcast'),),
-                      PopupMenuItem(child: Text('Whatsapp web'),),
-                      PopupMenuItem(child: Text('Settings'),),
-                  ];
-
-
-                }
-                )
-
-
-            ],
-            bottom: TabBar(
-              indicatorColor: Colors.white,
-              unselectedLabelColor: Colors.grey,
-              tabs: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.camera),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Chats'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Status'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Calls'),
-                ),
-              ],
-            ),
-          ),
-          body: TabBarView(
-            children: [
-              Text('Camera'),
-              ChatsView(),
-              Text('Status'),
-              Text('Calls'),
-            ],
-          ),
-        ),
+    return ScreenUtilInit(
+      builder:()=> MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: SplashScreen.id,
+supportedLocales: [
+  Locale('en','US'),
+  Locale('ar','EG')
+],
+        localizationsDelegates: [
+          Applocalization.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        localeResolutionCallback: (locale,supportedLocales){
+          for(var supportedlocale in supportedLocales ){
+            if(supportedlocale.languageCode==locale.languageCode &&
+            supportedlocale.countryCode==locale.countryCode
+            ){
+              return supportedlocale;
+            }
+          }
+          return supportedLocales.first;
+        },
+        routes: {
+          SplashScreen.id: (context) => SplashScreen(),
+          HomeScreen.id :(context)=>HomeScreen(),
+        },
       ),
     );
   }
 }
-
