@@ -12,22 +12,19 @@ class CameraView extends StatefulWidget {
 
 class _CameraViewState extends State<CameraView> {
   CameraController cameraController;
-  CameraController camera2Controller;
   Future<void> cameraFuture;
+  var v;
   @override
   void initState() {
     super.initState();
     cameraController = CameraController(cameras[0], ResolutionPreset.high);
-
     cameraFuture = cameraController.initialize();
-
   }
 
   @override
   void dispose() {
     super.dispose();
     cameraController.dispose();
-
   }
 
   Widget build(BuildContext context) {

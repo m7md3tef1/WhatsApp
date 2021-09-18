@@ -11,7 +11,8 @@ class ImageScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: Container(
             child: Stack(children: [
-          SizedBox(height: double.infinity, child: Image.file(File(path))),
+          SizedBox(height: double.infinity,
+              child: Image.file(File(path))),
           Row(
             children: [
               Expanded(

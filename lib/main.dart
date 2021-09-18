@@ -7,9 +7,10 @@ import 'package:whats_app/View/CameraPreview.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'App_localization.dart';
-void main()async{
+void main()async
+{
   WidgetsFlutterBinding.ensureInitialized();
-  cameras=await availableCameras();
+  cameras = await availableCameras();
 
   runApp(WhatsApp());
 }
@@ -23,7 +24,7 @@ class WhatsApp extends StatelessWidget {
         initialRoute: SplashScreen.id,
 supportedLocales: [
   Locale('en','US'),
-  Locale('ar','EG')
+  Locale('ar','EG'),
 ],
         localizationsDelegates: [
           AppLocalization.delegate,
