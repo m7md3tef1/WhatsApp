@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app/App_localization.dart';
 import 'package:whats_app/View/CameraPreview.dart';
 import 'package:whats_app/View/ChatsView.dart';
 import 'package:whats_app/View/callsviews.dart';
 import 'package:whats_app/View/statusView.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal,
-          title: Text(AppLocalization.of(context).translate('Fourth_string')),
+          title: Text('Fourth_string').tr(),
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -28,11 +28,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             PopupMenuButton(itemBuilder: (context) {
               return [
-                PopupMenuItem(child: Text(AppLocalization.of(context).translate('Eighth_string')),),
-                PopupMenuItem(child: Text(AppLocalization.of(context).translate('Ninth_string')),),
-                PopupMenuItem(child: Text(AppLocalization.of(context).translate('tenth_string')),),
-                PopupMenuItem(child: Text(AppLocalization.of(context).translate('Eleventh_string')),),
-                PopupMenuItem(child: Text(AppLocalization.of(context).translate('twelve_string')),),
+                PopupMenuItem(child: Text("Eighth_string").tr()),
+                PopupMenuItem(child: Text('Ninth_string').tr()),
+                PopupMenuItem(child: Text('tenth_string').tr()),
+                PopupMenuItem(child: Text('Eleventh_string').tr()),
+                PopupMenuItem(child: Text('twelve_string').tr()),
+                PopupMenuItem(child:
+                InkWell(
+                    onTap: ()
+                    {
+                      context.locale=Locale('en',);
+                    },
+                    child: Text('English')),),
+                PopupMenuItem(child:
+                InkWell(
+                    onTap: (){
+                      context.locale=Locale('ar',);
+                    },
+                    child: Text('عربي'))),
               ];
 
             })
@@ -42,9 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
             indicatorColor: Colors.grey,
             tabs: [
               Icon(Icons.camera_alt),
-              Text(AppLocalization.of(context).translate('first_string')),
-              Text(AppLocalization.of(context).translate('second_string')),
-              Text(AppLocalization.of(context).translate('third_string')),
+              Text("first_string").tr(),
+              Text("second_string").tr(),
+              Text("third_string").tr(),
             ],
 
           ),

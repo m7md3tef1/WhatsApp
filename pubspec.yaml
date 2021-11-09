@@ -36,7 +36,7 @@ dependencies:
   video_player:
   story_view:
   badges: ^2.0.1
-
+  easy_localization:
 
 dev_dependencies:
   flutter_test:

@@ -52,7 +52,7 @@ class _CameraViewState extends State<CameraView> {
                                padding: const EdgeInsets.all(20.0),
                                child: Icon(
                                  Icons.flash_off,
-                                 color: Colors.white,
+                                 color: Colors.black,
                                ),
                              ),
                            ),
@@ -84,12 +84,12 @@ class _CameraViewState extends State<CameraView> {
                                  child: Container(
                                    decoration: BoxDecoration(
                                      borderRadius: BorderRadius.circular(50),
-                                     border: Border.all(color: Colors.white),
+                                     border: Border.all(color: Colors.black),
                                    ),
                                    child: Container(
                                      decoration: BoxDecoration(
                                        borderRadius: BorderRadius.circular(50),
-                                       border: Border.all(color: Colors.white),
+                                       border: Border.all(color: Colors.black),
                                      ),
                                      child: CircleAvatar(
                                        radius: 35,
@@ -110,7 +110,7 @@ class _CameraViewState extends State<CameraView> {
                                padding: const EdgeInsets.all(20.0),
                                child: Icon(
                                  Icons.flip_camera_ios_rounded,
-                                 color: Colors.white,
+                                 color: Colors.black,
                                ),
                              ),
                            ),

@@ -2,10 +2,10 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:story_view/controller/story_controller.dart';
 import 'package:story_view/widgets/story_view.dart';
-import 'package:whats_app/App_localization.dart';
 import 'package:whats_app/Models/statusModel.dart';
 import 'package:whats_app/Widgets/StatusWidgets.dart';
 import 'package:whats_app/View/CameraPreview.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class StatusView extends StatefulWidget {
   const StatusView({Key key}) : super(key: key);
@@ -173,11 +173,11 @@ class _StatusViewState extends State<StatusView> {
                 ),
               ),
               title: Text(
-                AppLocalization.of(context).translate('Fifth_string'),
+                ('Fifth_string ').tr(),
                 style: TextStyle(color: Colors.black87),
               ),
               subtitle: Text(
-                AppLocalization.of(context).translate('Sixth_string'),
+                ('Sixth_string').tr(),
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -191,7 +191,7 @@ class _StatusViewState extends State<StatusView> {
                 child: Row(
                   children: [
                     Text(
-                      AppLocalization.of(context).translate('Seventh_string'),
+                     ('Seventh_string').tr(),
                       style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,

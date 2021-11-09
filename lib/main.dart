@@ -1,18 +1,25 @@
 import 'package:camera/camera.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whats_app/Screen/HomeScreen.dart';
 import 'package:whats_app/Screen/SplashScreen.dart';
 import 'package:whats_app/View/CameraPreview.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'App_localization.dart';
 void main()async
 {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
-
-  runApp(WhatsApp());
+  await EasyLocalization.ensureInitialized();
+  runApp(
+      EasyLocalization(
+          supportedLocales: [
+            Locale('en',''),
+            Locale('ar',''),
+          ],
+          path: 'lag',
+          fallbackLocale:  Locale('en',''),
+          child: WhatsApp()));
 }
 class WhatsApp extends StatelessWidget {
 
@@ -22,25 +29,9 @@ class WhatsApp extends StatelessWidget {
       builder:()=> MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: SplashScreen.id,
-supportedLocales: [
-  Locale('en','US'),
-  Locale('ar','EG'),
-],
-        localizationsDelegates: [
-          AppLocalization.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        localeResolutionCallback: (locale,supportedLocales){
-          for(var supportedLocale in supportedLocales ){
-            if(supportedLocale.languageCode==locale.languageCode &&
-            supportedLocale.countryCode==locale.countryCode
-            ){
-              return supportedLocale;
-            }
-          }
-          return supportedLocales.first;
-        },
+        localizationsDelegates: context.localizationDelegates,
+        locale: context.locale,
+        supportedLocales: context.supportedLocales,
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           HomeScreen.id :(context)=>HomeScreen(),
